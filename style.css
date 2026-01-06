@@ -1,0 +1,329 @@
+/* ================= RESET ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* ================= BACKGROUND ================= */
+body {
+    font-family: Arial, sans-serif;
+    color: #ffffff;
+    background: linear-gradient(
+        -45deg,
+        #0f2027,
+        #203a43,
+        #2c5364,
+        #1c1c1c
+    );
+    background-size: 400% 400%;
+    animation: gradientBG 12s ease infinite;
+}
+
+/* Background animation */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ================= PARTICLES ================= */
+.particles {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.particles::before,
+.particles::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(circle, rgba(255,255,255,0.15) 1px, transparent 1px);
+    background-size: 40px 40px;
+    animation: moveParticles 60s linear infinite;
+}
+
+.particles::after {
+    background-size: 60px 60px;
+    animation-duration: 90s;
+}
+
+@keyframes moveParticles {
+    from { transform: translateY(0); }
+    to { transform: translateY(-1000px); }
+}
+
+/* ================= NAVBAR ================= */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+}
+
+.navbar.scrolled {
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+}
+
+.logo {
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #ddd;
+    font-size: 14px;
+}
+
+.nav-links a:hover {
+    color: #2ecc71;
+}
+
+/* ================= HERO ================= */
+.hero {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    padding: 90px 60px;
+    min-height: 80vh;
+}
+
+.hero-left {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.profile-rectangle {
+    width: 300px;
+    height: 380px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 3px solid rgba(255,255,255,0.2);
+}
+
+.profile-rectangle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-right {
+    flex: 1;
+}
+
+.hero-right h1 {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+/* ================= BUTTON ================= */
+.cta-btn {
+    display: inline-block;
+    padding: 12px 26px;
+    background: #2ecc71;
+    color: #000;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+.cta-btn:hover {
+    background: #27ae60;
+}
+
+/* ================= SECTIONS ================= */
+.section {
+    padding: 80px 60px;
+}
+
+.section h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+/* ================= PROJECTS ================= */
+.project-card {
+    background: rgba(0,0,0,0.45);
+    border: 1px solid rgba(255,255,255,0.15);
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+}
+
+.project-card h3 {
+    margin-bottom: 10px;
+}
+
+.project-card p {
+    color: #ddd;
+}
+
+.project-links {
+    margin-top: 15px;
+    display: flex;
+    gap: 12px;
+}
+
+.btn-primary {
+    padding: 10px 18px;
+    background: #2ecc71;
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 6px;
+}
+
+.btn-primary:hover {
+    background: #27ae60;
+}
+
+.btn-secondary {
+    padding: 10px 18px;
+    border: 2px solid #2ecc71;
+    color: #2ecc71;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 6px;
+}
+
+.btn-secondary:hover {
+    background: #2ecc71;
+    color: #000;
+}
+
+/* ================= CERTIFICATES ================= */
+#certificate ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+#certificate li {
+    background: rgba(0,0,0,0.45);
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.15);
+}
+
+/* ================= CONTACT ================= */
+#contact a {
+    color: #2ecc71;
+    text-decoration: none;
+}
+
+/* ================= FOOTER ================= */
+footer {
+    text-align: center;
+    padding: 25px;
+    background: rgba(0,0,0,0.5);
+    color: #bbb;
+}
+
+/* ================= FADE ANIMATION ================= */
+.fade {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 0.8s ease;
+}
+
+.fade.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-right h1 {
+        font-size: 30px;
+    }
+}
+/* ================= MOBILE UI IMPROVEMENTS ================= */
+@media (max-width: 768px) {
+
+    /* Navbar */
+    .navbar {
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    /* Hero section */
+    .hero {
+        padding: 60px 20px;
+        gap: 40px;
+    }
+
+    .profile-rectangle {
+        width: 220px;
+        height: 280px;
+    }
+
+    .hero-right h1 {
+        font-size: 26px;
+        margin-bottom: 10px;
+    }
+
+    .cta-btn {
+        width: 100%;
+        text-align: center;
+        margin-top: 15px;
+    }
+
+    /* Sections */
+    .section {
+        padding: 60px 20px;
+    }
+
+    .section h2 {
+        font-size: 26px;
+    }
+
+    /* Project cards */
+    .project-links {
+        flex-direction: column;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Certificates */
+    #certificate ul {
+        grid-template-columns: 1fr;
+    }
+}
